@@ -28,7 +28,7 @@ async def hello(*args):
 @bot.command()
 async def echo(*args):
     if not len(args):
-        return await bot.say('Usage: `!echo <message>')
+        return await bot.say('Usage: `!echo <message>`')
     return await bot.say(args[0])
 
 bot.run(bot_token)
