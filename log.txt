@@ -1,0 +1,4 @@
+2017-04-30 17:57:43,448 - __main__ - CRITICAL - DISCORD_BOT_TOKEN environment variable not set.
+2017-04-30 18:18:05,618 - __main__ - CRITICAL - DISCORD_BOT_TOKEN environment variable not set.
+2017-04-30 18:23:24,549 - __main__ - CRITICAL - DISCORD_BOT_TOKEN environment variable not set.
+2017-04-30 18:23:48,052 - __main__ - CRITICAL - DISCORD_BOT_TOKEN environment variable not set.
