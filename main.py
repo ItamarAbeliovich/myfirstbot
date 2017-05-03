@@ -3,6 +3,7 @@ from discord.ext.commands import Bot
 from os import environ
 import logging
 import logutil
+import commands.reddit
 
 logger = logutil.get_logger(__name__, 'log.txt')
 
@@ -30,5 +31,9 @@ async def echo(*args):
     if not len(args):
         return await bot.say('Usage: `!echo <message>`')
     return await bot.say(' '.join(args))
+
+@bot.command()
+async def reddit(*args):
+    return await commands.reddit.get_post(bot, *args)
 
 bot.run(bot_token)
