@@ -9,7 +9,7 @@ async def get_post(bot, *args):
                              'Gets the top post from a sub or finds one of the top posts by keyword.')
 
     logger.debug('Fetching posts from reddit')
-    res = requests.get('http://reddit.com/r/%s/top/.json' % args[0])
+    res = requests.get('http://reddit.com/r/%s/top/.json' % args[0], headers={'User-Agent': 'The President bot v0.1'})
     logger.debug(res.json())
     posts = list(filter(lambda post: not post['over_18'],
                         map(lambda post: post['data'], res.json()['data']['children'])))
