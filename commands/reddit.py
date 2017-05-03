@@ -12,7 +12,7 @@ async def get_post(bot, *args):
 
     url = 'http://reddit.com/r/%s/top/.json' % args[0]
     if len(args) >= 2:
-        url = 'http://reddit.com/r/%s/search.json?q=%s&sort=top' % (args[0], ' '.join(args[1:]))
+        url = 'http://reddit.com/r/%s/search.json?q=%s&sort=top&restrict_sr=true' % (args[0], ' '.join(args[1:]))
 
     res = requests.get(url, headers={'User-Agent': 'The President bot v0.1'})
     if not res:
