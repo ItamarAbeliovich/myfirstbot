@@ -3,11 +3,12 @@ from discord.ext.commands import Bot
 from os import environ
 import sys
 import logging
+import logging.config
 import logutil
 import commands.reddit
 
-level = environ.get('LOG_LEVEL') or logging.INFO
-logging.basicConfig(level=level, stream=sys.stdout)
+log_level = eval('logging.%s' % (environ.get('LOG_LEVEL') or 'INFO'))
+logging.basicConfig(level=log_level, stream=sys.stdout)
 logger = logutil.get_logger(__name__, 'log.txt')
 
 try:
