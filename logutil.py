@@ -1,6 +1,7 @@
 import logging
 
-def get_logger(name, log_file=None, stream_level=logging.DEBUG, file_level=logging.DEBUG):
+
+def get_logger(name, log_file=None, stream_level=logging.INFO, file_level=logging.INFO):
     """
     :param name: Logger name
     :param log_file: Optional - File path for log storage
