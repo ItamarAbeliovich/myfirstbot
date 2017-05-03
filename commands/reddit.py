@@ -10,9 +10,13 @@ async def get_post(bot, *args):
 
     logger.debug('Fetching posts from reddit')
     res = requests.get('http://reddit.com/r/%s/top/.json' % args[0], headers={'User-Agent': 'The President bot v0.1'})
-    logger.debug(res.json())
+    json = res.json()
+    if json.get('error'):
+        logger.error('Error while fetching reddit posts from /r/%s: code %s; message: %s' %
+                     (args[0], json['error'], json.get('message')))
+        return
     posts = list(filter(lambda post: not post['over_18'],
-                        map(lambda post: post['data'], res.json()['data']['children'])))
+                        map(lambda post: post['data'], json['data']['children'])))
 
     logger.debug('Reddit posts fetched')
     if not len(posts):
