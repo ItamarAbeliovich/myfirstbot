@@ -1,10 +1,12 @@
 import discord
 from discord.ext.commands import Bot
 from os import environ
+import sys
 import logging
 import logutil
 import commands.reddit
 
+logging.basicConfig(level=logging.DEBUG, stream=sys.stdout)
 logger = logutil.get_logger(__name__, 'log.txt')
 
 try:

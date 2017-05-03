@@ -10,7 +10,7 @@ async def get_post(bot, *args):
 
     logger.debug('Fetching posts from reddit')
     res = requests.get('http://reddit.com/r/%s/top/.json' % args[0])
-    logger.debug(res.json()['data']['children'])
+    logger.debug(res.json())
     posts = list(filter(lambda post: not post['over_18'],
                         map(lambda post: post['data'], res.json()['data']['children'])))
 
